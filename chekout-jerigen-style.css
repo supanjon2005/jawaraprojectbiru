@@ -1,0 +1,42 @@
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #c0901f;
+}
+
+
+
+.jumlah-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    max-width: 200px;
+}
+
+.jumlah-container button {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    border: none;
+    background: #e0e0e0;
+    cursor: pointer;
+}
+
+.jumlah-container input {
+    width: 60px;
+    text-align: center;
+    border: 1px solid #ccc;
+    font-size: 18px;
+}

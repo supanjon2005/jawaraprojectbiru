@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jawara Cristal</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+            <img src="poto produk/logo.PNG" alt="Logo" width="80px">
+            <h1>Jawara Cristal</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#produk">Produk</a></li>
+                    <li><a href="#testimoni">Testimoni</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+
+
+
+
+
+<script>
+     function updateSummary() {
+  const rasaList = ['jeruk', 'mangga', 'cola', 'apel'];
+  let totalHarga = 0;
+  let detailPesanan = "";
+
+  rasaList.forEach(rasa => {
+    const input = document.getElementById(rasa);
+    const jumlah = parseInt(input.value) || 0;
+    const hargaSatuan = parseInt(input.getAttribute("data-harga"));
+    const subtotal = jumlah * hargaSatuan;
+    totalHarga += subtotal;
+
+    if (jumlah > 0) {
+      detailPesanan += `${rasa.charAt(0).toUpperCase() + rasa.slice(1)}: ${jumlah} × Rp${hargaSatuan.toLocaleString("id-ID")} = Rp${subtotal.toLocaleString("id-ID")}\n`;
+    }
+  });
+
+
+   function updateSummary() {
+  const rasaList = ['jeruk', 'mangga', 'cola', 'apel'];
+  let totalHarga = 0;
+  let detailPesanan = "";
+
+  let adaProduk = false;
+
+  rasaList.forEach(rasa => {
+    const input = document.getElementById(rasa);
+    const jumlah = parseInt(input.value) || 0;
+    const hargaSatuan = parseInt(input.getAttribute("data-harga"));
+    const subtotal = jumlah * hargaSatuan;
+    totalHarga += subtotal;
+
+    if (jumlah > 0) {
+      adaProduk = true;
+      detailPesanan += `${rasa.charAt(0).toUpperCase() + rasa.slice(1)}: ${jumlah} × Rp${hargaSatuan.toLocaleString("id-ID")} = Rp${subtotal.toLocaleString("id-ID")}\n`;
+    }
+  });
+
+  // tampilkan harga total
+  document.getElementById("hargaProduk").textContent = "Rp" + totalHarga.toLocaleString("id-ID");
+  document.getElementById("summaryHarga").textContent = "Rp" + totalHarga.toLocaleString("id-ID");
+
+  // detail pesanan
+  if (detailPesanan) {
+    document.getElementById("summaryPaket").textContent = "\n" + detailPesanan;
+  } else {
+    document.getElementById("summaryPaket").textContent = "-";
+  }
+
+  document.getElementById("totalBotolText").textContent = `Total: ${totalBotol} botol`;
+
+  // tampilkan gambar hanya kalau ada produk & kemasan
+  if (adaProduk && kemasanDipilih) {
+    document.getElementById("summaryImages").style.display = "flex";
+    updateProductImage();
+  } else {
+    document.getElementById("summaryImages").style.display = "none";
+  }
+}
+
+  // tampilkan di ringkasan
+  document.getElementById("hargaProduk").textContent = "Rp" + totalHarga.toLocaleString("id-ID");
+  document.getElementById("summaryHarga").textContent = "Rp" + totalHarga.toLocaleString("id-ID");
+
+  // kalau ada detail per rasa, masukkan ke ringkasan
+  if (detailPesanan) {
+    document.getElementById("summaryPaket").textContent = "\n" + detailPesanan;
+  } else {
+    document.getElementById("summaryPaket").textContent = "-";
+  }
+
+  </script>
+
+
+
+
+
+  // ✅ Validasi minimal & kelipatan 5
+  if (totalBotol < 15 || totalBotol % 5 !== 0) {
+    alert('Minimal order coktail 15 botol dan hanya berlaku kelipatan 5 (15, 20, 25, 30, 35, 40, 45, 50, ...).');
+    return;
+  }
+
+
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #222;
+    line-height: 1.6;
+
+    
+}
+
+
+header {
+
+    background-color:#b10000 ;
+    color: white;
+    padding: 5px 15px;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    
+    
+  }

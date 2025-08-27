@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jawara Cristal</title>
+
+
+ <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="checkout-style.css" />
+    <link rel="stylesheet" href="style.css" />
+    
+
+     <script src="https://unpkg.com/feather-icons"></script>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+            <img src="poto produk/logo putih.PNG" alt="Logo" width="80px">
+            <h1>JAWARA CRISTAL</h1>
+            </div>
+            <nav>
+                
+                <ul>
+                    <li><a href="index.html">Produk</a></li>
+                    <li><a href="https://www.instagram.com/jawara.cristal">Testimoni</a></li>
+                    
+                </ul>
+
+                
+            </nav>
+        </div>
+    </header>
+
+
+
+
+    <section class="order-section">
+        <div class="container">
+            <h2>Form Pemesanan</h2>
+            <div class="order-form">
+                <div class="product-info">
+                    <h3>Produk yang Dipilih</h3>
+                    <div class="product-details">
+                        <img src="poto produk/ARAK BOTOL MERAH.png" alt="Original Basic" />
+                        <div>
+                            <h4>Coktail 500Ml</h4>
+                            <p>Harga: <span id="hargaProduk">Pilih paket untuk melihat harga</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="orderForm">
+ <div class="form-group">
+  <label>Variasi Paket Botol:</label>
+
+  <!-- Header kolom -->
+  <div class="paket-header">
+    <span class="rasa">Rasa</span>
+    <span class="harga">Harga</span>
+    <span class="jumlah">Jumlah</span>
+  </div>
+
+  <!-- Daftar rasa -->
+  <div class="paket-list">
+    <div class="paket-item">
+      <span class="rasa">Jeruk</span>
+      <span class="harga">Rp 23.000</span>
+      <div class="qty-box">
+        <button type="button" onclick="ubahJumlah('jeruk', -1)">-</button>
+        <input type="text" id="jeruk" value="0" readonly data-harga="23000">
+        <button type="button" onclick="ubahJumlah('jeruk', 1)">+</button>
+      </div>
+    </div>
+
+    <div class="paket-item">
+      <span class="rasa">Mangga</span>
+      <span class="harga">Rp 23.000</span>
+      <div class="qty-box">
+        <button type="button" onclick="ubahJumlah('mangga', -1)">-</button>
+        <input type="text" id="mangga" value="0" readonly data-harga="23000">
+        <button type="button" onclick="ubahJumlah('mangga', 1)">+</button>
+      </div>
+    </div>
+
+    <div class="paket-item">
+      <span class="rasa">Cola</span>
+      <span class="harga">Rp 23.000</span>
+      <div class="qty-box">
+        <button type="button" onclick="ubahJumlah('cola', -1)">-</button>
+        <input type="text" id="cola" value="0" readonly data-harga="23000">
+        <button type="button" onclick="ubahJumlah('cola', 1)">+</button>
+      </div>
+    </div>
+
+    <div class="paket-item">
+      <span class="rasa">Apel</span>
+      <span class="harga">Rp 23.000</span>
+      <div class="qty-box">
+        <button type="button" onclick="ubahJumlah('apel', -1)">-</button>
+        <input type="text" id="apel" value="0" readonly data-harga="23000">
+        <button type="button" onclick="ubahJumlah('apel', 1)">+</button>
+      </div>
+    </div>
+  </div>
+  <p id="totalBotolText" style="font-weight: bold; margin-top: 10px;">Total: 0 botol</p>
+</div>
+
+                                         <div class="form-group">
+                         <label>Pengemasan:</label>
+                         <div class="kemasan-container">
+                             <button type="button" onclick="pilihKemasan(this)" data-kemasan="Pengemasan biasa" data-biaya="0">Pengemasan biasa</button>
+                             <button type="button" onclick="pilihKemasan(this)" data-kemasan="Kawat" data-biaya="20000">Kawat</button>
+                             <button type="button" onclick="pilihKemasan(this)" data-kemasan="Kayu" data-biaya="40000">Kayu</button>
+                         </div>
+                     </div>
+
+                    
+
+                                           <div class="order-summary">
+                          <h4>Ringkasan Pesanan:</h4>
+                                                     <div class="summary-product">
+                               <div class="summary-images" id="summaryImages" style="display: none;">
+                                   <div class="product-image">
+                                       <img src="poto produk/produk tanpa nama.png" alt="Original Basic" />
+                                       <p class="image-label">Produk</p>
+                                   </div>
+                                   <div class="packaging-image">
+                                       <img src="poto produk/produk tanpa nama.png" alt="Kemasan" />
+                                       <p class="image-label">Kemasan</p>
+                                   </div>
+                               </div>
+                               <div class="summary-details">
+                                   <p>Produk: <span id="summaryProduk">Original Basic</span></p>
+                                   <p>Paket: <span id="summaryPaket">-</span></p>
+                                   <p>Pengemasan: <span id="summaryKemasan">-</span></p>
+                                   <p>Biaya Kemasan: <span id="summaryBiayaKemasan">-</span></p>
+                                   <p>Harga: <span id="summaryHarga">Pilih paket untuk melihat harga</span></p>
+                               </div>
+                           </div>
+                      </div>
+
+                                           
+                      <button class="confirm-button" type="button" onclick="orderSekarang()">Order Sekarang</button>
+                      
+                 </form>
+             </div>
+         </div>
+     </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Jawara Cristal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+
+      function bukaPopup() {
+  document.getElementById("popupOrder").style.display = "flex";
+}
+
+function tutupPopup() {
+  document.getElementById("popupOrder").style.display = "none";
+}
+
+
+
+
+
+
+
+
+
+        let paketDipilih = '';
+        let kemasanDipilih = '';
+        let hargaDipilih = '';
+        let biayaKemasan = 0;
+
+        function pilihPaket(btn) {
+            document.querySelectorAll('.paket-container button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            paketDipilih = btn.getAttribute('data-paket');
+            hargaDipilih = btn.getAttribute('data-harga');
+            updateSummary();
+        }
+
+        function pilihKemasan(btn) {
+            document.querySelectorAll('.kemasan-container button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            kemasanDipilih = btn.getAttribute('data-kemasan');
+            biayaKemasan = parseInt(btn.getAttribute('data-biaya')) || 0;
+            updateSummary();
+        }
+
+       function updateSummary() {
+  const rasaList = ['jeruk', 'mangga', 'cola', 'apel'];
+  let totalHarga = 0;
+  let detailPesanan = "";
+  let totalBotol = 0;
+  let adaProduk = false;
+
+  rasaList.forEach(rasa => {
+    const input = document.getElementById(rasa);
+    const jumlah = parseInt(input.value) || 0;
+    const hargaSatuan = parseInt(input.getAttribute("data-harga"));
+    const subtotal = jumlah * hargaSatuan;
+    totalHarga += subtotal;
+    totalBotol += jumlah;
+
+    if (jumlah > 0) {
+      adaProduk = true;
+      detailPesanan += `${rasa.charAt(0).toUpperCase() + rasa.slice(1)}: ${jumlah} × Rp${hargaSatuan.toLocaleString("id-ID")} = Rp${subtotal.toLocaleString("id-ID")}\n`;
+    }
+  });
+
+  // tampilkan total harga
+  document.getElementById("hargaProduk").textContent = "Rp" + totalHarga.toLocaleString("id-ID");
+  document.getElementById("summaryHarga").textContent = "Rp" + totalHarga.toLocaleString("id-ID");
+
+  // tampilkan detail pesanan
+  if (detailPesanan) {
+    document.getElementById("summaryPaket").textContent = "\n" + detailPesanan;
+  } else {
+    document.getElementById("summaryPaket").textContent = "-";
+  }
+
+  // update total botol di bawah tabel
+  document.getElementById("totalBotolText").textContent = `Total: ${totalBotol} botol`;
+
+  // tampilkan gambar kalau ada produk + kemasan
+  if (adaProduk && kemasanDipilih) {
+    document.getElementById("summaryImages").style.display = "flex";
+    updateProductImage();
+  } else {
+    document.getElementById("summaryImages").style.display = "none";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+        function updateProductImage() {
+  const productImage = document.querySelector('.product-image img');
+  const packagingImage = document.querySelector('.packaging-image img');
+
+  // Foto produk tetap sama
+  productImage.src = 'poto produk/ARAK BOTOL MERAH.png';
+
+  // Foto kemasan berubah sesuai pilihan
+  if (kemasanDipilih === 'Kawat') {
+    packagingImage.src = 'poto produk/packing kawat.jpg';
+  } else if (kemasanDipilih === 'Kayu') {
+    packagingImage.src = 'poto produk/packing kayu.jpeg';
+  } else {
+    packagingImage.src = 'poto produk/biasa.jpeg';
+  }
+}
+
+        function formatHarga(harga) {
+            return 'Rp' + parseInt(harga).toLocaleString('id-ID');
+        }
+
+        function kirimPesanan() {
+            const nama = document.getElementById('nama').value;
+            const telepon = document.getElementById('telepon').value;
+            const alamat = document.getElementById('alamat').value;
+            const catatan = document.getElementById('catatan').value;
+
+            if (!nama || !telepon || !alamat) {
+                alert('Mohon lengkapi data pemesanan!');
+                return;
+            }
+
+            if (!paketDipilih || !kemasanDipilih) {
+                alert('Mohon pilih paket dan pengemasan!');
+                return;
+            }
+
+            if (!hargaDipilih) {
+                alert('Mohon pilih paket untuk melihat harga!');
+                return;
+            }
+
+            let pesan = `Halo, saya ingin memesan:\n\n`;
+            pesan += `*Produk:* Original Basic\n`;
+            pesan += `*Paket:* ${paketDipilih}\n`;
+            pesan += `*Pengemasan:* ${kemasanDipilih}`;
+            if (biayaKemasan > 0) {
+                pesan += ` (+${formatHarga(biayaKemasan)})`;
+            }
+            pesan += `\n`;
+            const totalHarga = parseInt(hargaDipilih) + biayaKemasan;
+            pesan += `*Harga:* ${formatHarga(totalHarga)}\n\n`;
+            pesan += `*Data Pemesan:*\n`;
+            pesan += `Nama: ${nama}\n`;
+            pesan += `Telepon: ${telepon}\n`;
+            pesan += `Alamat: ${alamat}\n`;
+            
+            if (catatan) {
+                pesan += `Catatan: ${catatan}\n`;
+            }
+
+            const linkWA = `https://wa.me/6281228601369?text=${encodeURIComponent(pesan)}`;
+            window.open(linkWA, '_blank');
+        }
+
+
+
+
+
+
+
+// bagian variasi coktail
+
+        function ubahJumlah(id, delta) {
+  const input = document.getElementById(id);
+  let val = parseInt(input.value) || 0;
+  val += delta;
+  if (val < 0) val = 0;
+  input.value = val;
+  updateSummary(); // update ringkasan
+}
+
+
+
+
+
+
+
+
+function orderSekarang() {
+  const rasaList = ['jeruk','mangga','cola','apel'];
+  let totalHarga = 0;
+  let detailPesanan = '';
+  let totalBotol = 0;
+
+  rasaList.forEach(rasa => {
+    const input = document.getElementById(rasa);
+    const qty = parseInt(input.value) || 0;
+    const hargaSatuan = parseInt(input.getAttribute('data-harga')) || 0;
+    if (qty > 0) {
+      const subtotal = qty * hargaSatuan;
+      totalHarga += subtotal;
+      totalBotol += qty;
+      const rasaCap = rasa.charAt(0).toUpperCase() + rasa.slice(1);
+      detailPesanan += `${rasaCap}: ${qty} × Rp${hargaSatuan.toLocaleString('id-ID')} = Rp${subtotal.toLocaleString('id-ID')}\n`;
+    }
+  });
+
+  // ✅ Validasi minimal & kelipatan 5
+if (totalBotol < 15 || totalBotol % 5 !== 0) {
+  bukaPopup(); // pakai popup modal
+  return;
+}
+
+
+
+  const btnKemasanAktif = document.querySelector('.kemasan-container button.active');
+  if (!btnKemasanAktif) {
+    alert('Silakan pilih pengemasan.');
+    return;
+  }
+  const kemasan = btnKemasanAktif.getAttribute('data-kemasan');
+  const biayaKemasan = parseInt(btnKemasanAktif.getAttribute('data-biaya')) || 0;
+
+  const gambarProduk = 'poto produk/ARAK BOTOL MERAH.png';
+  let gambarKemasan = 'poto produk/biasa.jpeg';
+  if (kemasan === 'Kawat') gambarKemasan = 'poto produk/packing kawat.jpg';
+  if (kemasan === 'Kayu') gambarKemasan = 'poto produk/packing kayu.jpeg';
+
+  localStorage.setItem('produk', 'Coktail 500Ml');
+  localStorage.setItem('paket', detailPesanan.trim() || '-');
+  localStorage.setItem('kemasan', kemasan);
+  localStorage.setItem('hargaProduk', String(totalHarga));
+  localStorage.setItem('biayaKemasan', String(biayaKemasan));
+  localStorage.setItem('gambarProduk', gambarProduk);
+  localStorage.setItem('gambarKemasan', gambarKemasan);
+
+  window.location.href = 'coktail-checkout.html';
+}
+
+
+
+    </script>
+
+  
+
+    <!-- Popup Modal Minimal Order -->
+<div id="popupOrder" class="popup-overlay">
+  <div class="popup-box">
+    <h2>
+  <span class="warning-icon">⚠</span> Info Order
+</h2>
+    <p>Minimal order coktail adalah <b>15 botol</b> dan hanya berlaku kelipatan 5 (15, 20, 25, 30, ...).</p>
+    <button onclick="tutupPopup()">OK</button>
+  </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+

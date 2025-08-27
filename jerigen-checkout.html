@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jawara Cristal</title>
+
+     <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+
+
+    <link rel="stylesheet" href="checkout-style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+            <img src="poto produk/logo putih.PNG" alt="Logo" width="80px">
+            <h1>JAWARA CRISTAL</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Produk</a></li>
+                    <li><a href="https://www.instagram.com/jawara.cristal">Testimoni</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<div class="container">
+  <i data-feather="arrow-left-circle"></i>
+  <h3>Pesanan <span class="red"></span></h3>
+
+  <!-- Alamat Pengiriman -->
+  <div class="box">
+    <h4 class="section-title">Alamat Pengiriman</h4>
+    <label>Nama Penerima</label>
+    <input type="text" placeholder="Tulis nama anda">
+
+    <label>Nomor Telepon Penerima</label>
+    <small>Contoh format: 081222333444</small>
+    <input type="tel" placeholder="Tulis nomor telepon anda">
+
+    <label>Alamat Lengkap</label>
+    <textarea rows="3" placeholder="Alamat lengkap..."></textarea>
+
+    <label>Kecamatan</label>
+    <input type="text">
+
+    <label>Kabupaten</label>
+    <input type="text">
+
+    <label>Dusun/RT RW</label>
+    <input type="text">
+
+    <label>Kelurahan</label>
+    <input type="text">
+  </div>
+
+  <!-- Pilihan Kurir -->
+  <div class="box">
+    <h4 class="section-title">Pilihan Kurir</h4>
+    <label>Kurir</label>
+    <select>
+      <option selected>TRUK (AMAN & CEPAT)</option>
+      <option>JNT CARGO</option>
+      
+    </select>
+
+    <div class="dropdown-container">
+      <label for="cariKabupaten">Kabupaten</label>
+      <input type="text" id="cariKabupaten" placeholder="Pilih kabupaten..." readonly>
+      <div class="dropdown-list" id="daftarKabupaten">
+        <!-- isi dropdown kabupaten sama persis dengan checkout_split.html -->
+        <div class="dropdown-item">SIDOARJO</div>
+        <div class="dropdown-item">TASIKMALAYA</div>
+        <div class="dropdown-item">SRAGEN</div>
+        <div class="dropdown-item">MALANG</div>
+        <div class="dropdown-item">BOGOR</div>
+        <div class="dropdown-item">KUDUS</div>
+        <div class="dropdown-item">KARAWANG</div>
+        <div class="dropdown-item">TANGERANG</div>
+        <div class="dropdown-item">JAKARTA</div>
+        <div class="dropdown-item">BEKASI</div>
+        <!-- dst … (isi lengkap sama persis dengan checkout_split.html) -->
+      </div>
+    </div>
+
+    <p id="peringatanKurir" style="color:red; display:none;">
+      Kurir ini tidak tersedia untuk kabupaten yang dipilih.
+    </p>
+    <p class="peringatan-kabupaten">
+      Pastikan kabupaten yang Anda pilih sesuai dengan alamat pengiriman di atas
+    </p>
+    <p>Ongkos kirim: <span id="ongkir" class="harga">Rp0</span></p>
+  </div>
+
+  <!-- Detail Pesanan -->
+  <div class="detail-pesanan-container">
+    <h4 class="judul-pesanan">Detail Pesanan</h4>
+    <div class="detail-produk">
+      <div class="detail-teks">
+        <strong>Memuat data pesanan...</strong>
+      </div>
+    </div>
+    <div class="tombol-lanjutkan-container">
+      <button class="tombol-lanjutkan">Lanjut Ke Pembayaran</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Jawara Cristal. All rights reserved.</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+function buatKodePesanan() {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+
+  const huruf = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const randomHuruf = huruf[Math.floor(Math.random() * huruf.length)] + huruf[Math.floor(Math.random() * huruf.length)];
+  const randomAngka = Math.floor(Math.random() * 10);
+
+  return `#JWR${yyyy}${mm}${dd}${randomHuruf}${randomAngka}`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const elemenKode = document.querySelector("h3 > span.red");
+  if (elemenKode) elemenKode.textContent = buatKodePesanan();
+});
+</script>
+
+<script>
+const wilayahKurir = {
+  "TRUK (AMAN & CEPAT)": ["SIDOARJO", "TASIKMALAYA","SRAGEN","MALANG", "BOGOR", "KUDUS", "KARAWANG", "TANGERANG", "JAKARTA", "BEKASI"],
+  "JNT CARGO": [
+    "JAWA TIMUR / LAMONGAN", "JAWA TIMUR / MOJOKERTO", "JAWA TIMUR / NGANJUK", 
+    "JAWA TIMUR / TRENGGALEK", "JAWA TIMUR / BANYUWANGI", "JAWA TIMUR / BLITAR",
+    "JAWA TIMUR / BONDOWOSO", "JAWA TIMUR / MALANG", "JAWA TIMUR / NGAWI",
+    "JAWA TIMUR / PACITAN", "JAWA TIMUR / PEMEKASAN", "JAWA TIMUR / PASURUAN",
+    "JAWA TIMUR / PONOROGO", "JAWA TIMUR / PROBOLINGGO", "JAWA TIMUR / SAMPANG",
+    "JAWA TIMUR / SIDOARJO", "JAWA TIMUR / SITUBONDO", "JAWA TIMUR / SUMENEP",
+    "JAWA TIMUR / SURABAYA", "JAWA TIMUR / TUBAN", "JAWA TIMUR / TULUNGAGUNG",
+    "JAWA TENGAH / BANJARNEGARA", "JAWA TENGAH / BANYUMAS", "JAWA TENGAH / BATANG",
+    "JAWA TENGAH / BLORA", "JAWA TENGAH / BOYOLALI", "JAWA TENGAH / BREBES",
+    "JAWA TENGAH / CILACAP", "JAWA TENGAH / DEMAK", "JAWA TENGAH / GROBOGAN",
+    "JAWA TENGAH / JEPARA", "JAWA TENGAH / KARANGANYAR", "JAWA TENGAH / KEBUMEN",
+    "JAWA TENGAH / KENDAL", "JAWA TENGAH / KLATEN", "JAWA TENGAH / KUDUS",
+    "JAWA TENGAH / MAGELANG", "JAWA TENGAH / PATI", "JAWA TENGAH / PEKALONGAN",
+    "JAWA TENGAH / PEMALANG", "JAWA TENGAH / PURBALINGGA", "JAWA TENGAH / PURWOREJO",
+    "JAWA TENGAH / REMBANG", "JAWA TENGAH / SEMARANG", "JAWA TENGAH / SRAGEN",
+    "JAWA TENGAH / SUKOHARJO", "JAWA TENGAH / TEGAL", "JAWA TENGAH / TEMANGGUNG",
+    "JAWA TENGAH / WONOGIRI", "JAWA TENGAH / WONOSOBO", "JAWA TENGAH / SOLO (SURAKARTA)",
+    "JAWA BARAT / BOGOR", "JAWA BARAT / SUKABUMI", "JAWA BARAT / CIANJUR", "JAWA BARAT / BANDUNG",
+    "JAWA BARAT / GARUT", "JAWA BARAT / TASIKMALAYA", "JAWA BARAT / CIAMIS",
+    "JAWA BARAT / KUNINGAN", "JAWA BARAT / CIREBON", "JAWA BARAT / MAJALENGKA",
+    "JAWA BARAT / SUMEDANG", "JAWA BARAT / INDRAMAYU", "JAWA BARAT / SUBANG",
+    "JAWA BARAT / PURWAKARTA", "JAWA BARAT / KARAWANG", "JAWA BARAT / BEKASI",
+    "JAWA BARAT / BANDUNG BARAT", "JAWA BARAT / PANGANDARAN", "JAWA BARAT / BANJAR",
+    "JAWA BARAT / CIMAHI", "JAWA BARAT / DEPOK",
+    "BANTEN / PANDEGLANG", "BANTEN / LEBAK", "BANTEN / TANGERANG", 
+    "BANTEN / SERANG", "BANTEN / TANGERANG SELATAN", "BANTEN / CILEGON"
+  ],
+  "VENDOR": ["Sumenep", "Pandeglang", "Denpasar"]
+};
+</script>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const produk = localStorage.getItem('produk');
+  const paket = localStorage.getItem('paket');
+  const kemasan = localStorage.getItem('kemasan');
+  const hargaProduk = parseInt(localStorage.getItem('hargaProduk')) || 0;
+  const biayaKemasan = parseInt(localStorage.getItem('biayaKemasan')) || 0;
+  const gambarProduk = localStorage.getItem('gambarProduk');
+  const gambarKemasan = localStorage.getItem('gambarKemasan');
+  const total = hargaProduk + biayaKemasan;
+
+  if (!produk || !paket) {
+    alert("Data pesanan tidak ditemukan. Silakan kembali ke halaman Order.");
+    window.location.href = "jerigen.html";
+    return;
+  }
+
+  const detail = document.querySelector('.detail-teks');
+  if (detail) {
+    detail.innerHTML = `
+      <div class="item-pesanan">
+        <img src="${gambarProduk}" alt="Produk">
+        <div class="info-pesanan">
+          <strong>${produk}</strong>
+          <p class="variasi">${paket}</p>
+          <p class="harga">Rp${hargaProduk.toLocaleString('id-ID')}</p>
+        </div>
+      </div>
+      <div class="item-pesanan">
+        <img src="${gambarKemasan}" alt="Kemasan">
+        <div class="info-pesanan">
+          <strong>Pengemasan</strong>
+          <p class="variasi">${kemasan}</p>
+          <p class="harga">${biayaKemasan > 0 ? "Rp" + biayaKemasan.toLocaleString('id-ID') : "Gratis"}</p>
+        </div>
+      </div>
+      <div class="item-total">
+        <strong>Total Bayar: Rp${total.toLocaleString('id-ID')}</strong>
+      </div>
+    `;
+  }
+});
+</script>
+
+<script>
+feather.replace();
+</script>
+
+</body>
+</html>

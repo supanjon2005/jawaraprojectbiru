@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jawara Cristal</title>
+
+     <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+
+
+    <link rel="stylesheet" href="checkout-style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="chekout-jerigen-style.css" />
+
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+            <img src="poto produk/logo putih.PNG" alt="Logo" width="80px">
+            <h1>JAWARA CRISTAL</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Produk</a></li>
+                    <li><a href="https://www.instagram.com/jawara.cristal">Testimoni</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <section class="order-section">
+        <div class="container">
+            <h2>Form Pemesanan</h2>
+            <div class="order-form">
+                <div class="product-info">
+                    <h3>Produk yang Dipilih</h3>
+                    <div class="product-details">
+                        <img src="poto produk/ARAK JIRIGEN.png" alt="Original Basic" />
+                        <div>
+                            <h4>Jerigen 5 Liter</h4>
+                            <p>Harga: <span id="hargaProduk">Pilih paket untuk melihat harga</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label>Variasi Paket Jerigen:</label>
+                                                 <div class="paket-container">
+                             <button type="button" onclick="pilihPaket(this)" data-paket="Jerigen 5 Liter" data-harga="155000">Jerigen 5 Liter</button>
+                             <button type="button" onclick="pilihPaket(this)" data-paket="Jerigen 5 Liter" data-harga="300000">Jerigen 10 Liter</button>
+                         </div>
+                    </div>
+
+                    <div class="form-group">
+    <label>Jumlah:</label>
+    <div class="jumlah-container">
+        <button type="button" onclick="ubahJumlah(-1)">-</button>
+        <input type="text" id="jumlahProduk" value="1" readonly />
+        <button type="button" onclick="ubahJumlah(1)">+</button>
+    </div>
+</div>
+
+                                         <div class="form-group">
+                         <label>Pengemasan:</label>
+                         <div class="kemasan-container">
+                             <button type="button" onclick="pilihKemasan(this)" data-kemasan="Pengemasan biasa" data-biaya="0">Pengemasan biasa</button>
+                             <button type="button" onclick="pilihKemasan(this)" data-kemasan="Kawat" data-biaya="20000">Kawat</button>
+                             <button type="button" onclick="pilihKemasan(this)" data-kemasan="Kayu" data-biaya="40000">Kayu</button>
+                         </div>
+                     </div>
+
+                    
+
+                                           <div class="order-summary">
+                          <h4>Ringkasan Pesanan:</h4>
+                                                     <div class="summary-product">
+                               <div class="summary-images" id="summaryImages" style="display: none;">
+                                   <div class="product-image">
+                                       <img src="poto produk/ARAK JIRIGEN.png" alt="Jerigen 5 Liter" />
+                                       <p class="image-label">Produk</p>
+                                   </div>
+                                   <div class="packaging-image">
+                                       <img src="poto produk/ARAK JIRIGEN.png" alt="Kemasan" />
+                                       <p class="image-label">Kemasan</p>
+                                   </div>
+                               </div>
+                               <div class="summary-details">
+                                   <p>Produk: <span id="summaryProduk">Jerigen 5 Liter</span></p>
+                                   <p>Jumlah: <span id="summaryJumlah">1</span> Jerigen</p>
+                                   <p>Pengemasan: <span id="summaryKemasan">-</span></p>
+                                   <p>Biaya Kemasan: <span id="summaryBiayaKemasan">-</span></p>
+                                   <p>Harga: <span id="summaryHarga">Pilih paket untuk melihat harga</span></p>
+                               </div>
+                           </div>
+                      </div>
+
+                                           
+                      <button class="confirm-button" type="button" onclick="orderSekarangjerigen()">Order Sekarang</button>
+                      
+                 </form>
+             </div>
+         </div>
+     </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Jawara Cristal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let paketDipilih = '';
+        let kemasanDipilih = '';
+        let hargaDipilih = '';
+        let biayaKemasan = 0;
+
+        function pilihPaket(btn) {
+            document.querySelectorAll('.paket-container button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            paketDipilih = btn.getAttribute('data-paket');
+            hargaDipilih = btn.getAttribute('data-harga');
+            updateSummary();
+        }
+
+        function pilihKemasan(btn) {
+            document.querySelectorAll('.kemasan-container button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            kemasanDipilih = btn.getAttribute('data-kemasan');
+            biayaKemasan = parseInt(btn.getAttribute('data-biaya')) || 0;
+            updateSummary();
+        }
+
+        
+
+
+
+        function updateProductImage() {
+            const productImage = document.querySelector('.product-image img');
+            const packagingImage = document.querySelector('.packaging-image img');
+            
+            // Foto produk tetap sama
+            productImage.src = 'poto produk/ARAK JIRIGEN.png';
+            
+            // Foto kemasan berubah sesuai pilihan
+            if (kemasanDipilih === 'Kawat') {
+                packagingImage.src = 'poto produk/packing kawat.jpg';
+            } else if (kemasanDipilih === 'Kayu') {
+                packagingImage.src = 'poto produk/packing kayu.jpeg';
+            } else {
+                packagingImage.src = 'poto produk/biasa.jpeg';
+            }
+        }
+
+        function formatHarga(harga) {
+            return 'Rp' + parseInt(harga).toLocaleString('id-ID');
+        }
+
+        function kirimPesanan() {
+            const nama = document.getElementById('nama').value;
+            const telepon = document.getElementById('telepon').value;
+            const alamat = document.getElementById('alamat').value;
+            const catatan = document.getElementById('catatan').value;
+
+            if (!nama || !telepon || !alamat) {
+                alert('Mohon lengkapi data pemesanan!');
+                return;
+            }
+
+            if (!paketDipilih || !kemasanDipilih) {
+                alert('Mohon pilih paket dan pengemasan!');
+                return;
+            }
+
+            if (!hargaDipilih) {
+                alert('Mohon pilih paket untuk melihat harga!');
+                return;
+            }
+
+            let pesan = `Halo, saya ingin memesan:\n\n`;
+            pesan += `*Produk:* Original Basic\n`;
+            pesan += `*Paket:* ${paketDipilih}\n`;
+            pesan += `*Pengemasan:* ${kemasanDipilih}`;
+            if (biayaKemasan > 0) {
+                pesan += ` (+${formatHarga(biayaKemasan)})`;
+            }
+            pesan += `\n`;
+            const totalHarga = parseInt(hargaDipilih) + biayaKemasan;
+            pesan += `*Harga:* ${formatHarga(totalHarga)}\n\n`;
+            pesan += `*Data Pemesan:*\n`;
+            pesan += `Nama: ${nama}\n`;
+            pesan += `Telepon: ${telepon}\n`;
+            pesan += `Alamat: ${alamat}\n`;
+            
+            if (catatan) {
+                pesan += `Catatan: ${catatan}\n`;
+            }
+
+            const linkWA = `https://wa.me/6281228601369?text=${encodeURIComponent(pesan)}`;
+            window.open(linkWA, '_blank');
+        }
+
+
+
+
+
+    </script>
+
+    <script>
+    let jumlahBeli = 1;
+
+    function ubahJumlah(angka) {
+        jumlahBeli += angka;
+        if (jumlahBeli < 1) jumlahBeli = 1;
+        document.getElementById("jumlahProduk").value = jumlahBeli;
+        updateSummary();
+    }
+
+
+
+
+
+
+    function updateSummary() {
+    document.getElementById('summaryJumlah').textContent = jumlahBeli;
+    document.getElementById('summaryKemasan').textContent = kemasanDipilih || '-';
+    
+    if (biayaKemasan > 0) {
+        document.getElementById('summaryBiayaKemasan').textContent = formatHarga(biayaKemasan);
+    } else {
+        document.getElementById('summaryBiayaKemasan').textContent = 'Gratis';
+    }
+
+    if (paketDipilih && kemasanDipilih) {
+        document.getElementById('summaryImages').style.display = 'flex';
+        updateProductImage();
+    } else {
+        document.getElementById('summaryImages').style.display = 'none';
+    }
+
+    if (hargaDipilih) {
+        let hargaPerJerigen = parseInt(hargaDipilih);
+
+        // Kalau beli 5 jerigen ke atas, harga per jerigen jadi Rp150.000
+        if (jumlahBeli >= 5) {
+            hargaPerJerigen = 150000;
+        } else {
+            hargaPerJerigen = 155000; // default untuk 1–4
+        }
+
+        // 👉 Harga di samping gambar = harga per jerigen
+        document.getElementById('hargaProduk').textContent = formatHarga(hargaPerJerigen);
+
+        // 👉 Total harga (untuk ringkasan pesanan)
+        const totalHarga = (hargaPerJerigen * jumlahBeli) + biayaKemasan;
+        document.getElementById('summaryHarga').textContent = formatHarga(totalHarga);
+    }
+}
+
+
+
+window.onload = function() {
+    // Pilih otomatis Jerigen 5 Liter
+    const paketDefault = document.querySelector('.paket-container button[data-paket="Jerigen 5 Liter"]');
+    if (paketDefault) {
+        pilihPaket(paketDefault);
+    }
+
+    // Pilih otomatis kemasan Kawat
+    const kemasanDefault = document.querySelector('.kemasan-container button[data-kemasan="Kawat"]');
+    if (kemasanDefault) {
+        pilihKemasan(kemasanDefault);
+    }
+
+    // Set jumlah awal = 1
+    jumlahBeli = 1;
+    document.getElementById("jumlahProduk").value = jumlahBeli;
+
+    // Update ringkasan harga pertama kali
+    updateSummary();
+};
+
+
+</script>
+
+<script>
+function orderSekarangjerigen() {
+  // Validasi pilihan
+  if (!paketDipilih) { alert('Mohon pilih paket jerigen.'); return; }
+  if (!kemasanDipilih) { alert('Mohon pilih pengemasan.'); return; }
+
+  // Tentukan harga per jerigen sesuai jumlah
+  let hargaPerJerigen = (jumlahBeli >= 5) ? 150000 : 155000;
+  const subtotalProduk = hargaPerJerigen * jumlahBeli;
+
+  // Path gambar kemasan
+  let gambarKemasanPath = 'poto produk/biasa.jpeg';
+  if (kemasanDipilih === 'Kawat') gambarKemasanPath = 'poto produk/packing kawat.jpg';
+  if (kemasanDipilih === 'Kayu')  gambarKemasanPath = 'poto produk/packing kayu.jpeg';
+
+  // Simpan data ke localStorage
+  localStorage.setItem('produk', 'Jerigen 5 Liter');
+  localStorage.setItem('paket', `${paketDipilih} x ${jumlahBeli}`);
+  localStorage.setItem('kemasan', kemasanDipilih);
+  localStorage.setItem('hargaProduk', String(subtotalProduk));
+  localStorage.setItem('biayaKemasan', String(biayaKemasan));
+  localStorage.setItem('gambarProduk', 'poto produk/ARAK JIRIGEN.png');
+  localStorage.setItem('gambarKemasan', gambarKemasanPath);
+
+  // Pindah ke halaman checkout
+  window.location.href = 'jerigen-checkout.html';
+}
+</script>
+</body>
+</html>

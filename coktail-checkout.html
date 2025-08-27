@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jawara Cristal - Checkout Coktail (Fixed)</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles (pakai CSS kamu sendiri) -->
+  <link rel="stylesheet" href="checkout-style.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    /* minimal guard agar dropdown terlihat */
+    .dropdown-container { position: relative; }
+    .dropdown-list {
+      display:none; position:absolute; left:0; right:0; max-height:220px; overflow:auto;
+      background:#fff; border:1px solid #ddd; border-radius:6px; z-index: 20;
+    }
+    .dropdown-item { padding:8px 10px; cursor:pointer; }
+    .dropdown-item:hover { background:#f3f3f3; }
+    #cariKabupaten[readonly] { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="poto produk/logo putih.PNG" alt="Logo" width="80px">
+        <h1>JAWARA CRISTAL</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Produk</a></li>
+          <li><a href="https://www.instagram.com/jawara.cristal">Testimoni</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <h3>Pesanan <span class="red"></span></h3>
+
+    <!-- Form alamat -->
+    <div class="box">
+      <h4 class="section-title">Alamat Pengiriman</h4>
+      <label>Nama Penerima</label>
+      <input type="text" placeholder="Tulis nama anda">
+
+      <label>Nomor Telepon Penerima</label>
+      <small>Contoh format: 081222333444</small>
+      <input type="tel" placeholder="Tulis nomor telepon anda">
+
+      <label>Alamat Lengkap</label>
+      <textarea rows="3" placeholder="Alamat lengkap..."></textarea>
+
+      <label>Kecamatan</label>
+      <input type="text">
+
+      <label>Kabupaten</label>
+    <input type="text">
+
+      <label>Kelurahan</label>
+      <input type="text">
+    </div>
+
+    <!-- Pilihan kurir -->
+    <div class="box">
+      <h4 class="section-title">Pilihan Kurir</h4>
+      <label>Kurir</label>
+      <select id="kurirSelect">
+        <option value="TRUK (AMAN & CEPAT)" selected>TRUK (AMAN & CEPAT)</option>
+        <option value="JNT CARGO">JNT CARGO</option>
+        
+      </select>
+
+      <div class="dropdown-container" id="kabupatenContainer">
+        <label for="cariKabupaten">Kabupaten</label>
+        <input type="text" id="cariKabupaten" placeholder="Pilih kabupaten..." readonly>
+        <div class="dropdown-list" id="daftarKabupaten">
+          <!-- TULIS KABUPATEN LENGKAP DI SINI (static seperti checkout_split.html) -->
+          <div class="dropdown-item">SIDOARJO</div>
+          <div class="dropdown-item">MALANG</div>
+          <div class="dropdown-item">BOGOR</div>
+          <div class="dropdown-item">JAKARTA</div>
+          <div class="dropdown-item">BEKASI</div>
+          <div class="dropdown-item">SRAGEN</div>
+          <div class="dropdown-item">TASIKMALAYA</div>
+        </div>
+      </div>
+
+      <p id="peringatanKurir" style="color:red; display:none;">
+        Kurir ini tidak tersedia untuk kabupaten yang dipilih.
+      </p>
+
+      <p class="peringatan-kabupaten">
+        Pastikan kabupaten yang Anda pilih sesuai dengan alamat pengiriman di atas
+      </p>
+
+      <p>Ongkos kirim: <span id="ongkir" class="harga">Rp0</span></p>
+    </div>
+
+    <!-- Detail pesanan -->
+    <div class="detail-pesanan-container">
+      <h4 class="judul-pesanan">Detail Pesanan</h4>
+      <div class="detail-produk">
+        <div class="detail-teks">
+          <strong>Memuat data pesanan...</strong>
+        </div>
+      </div>
+      <div class="tombol-lanjutkan-container">
+        <button class="tombol-lanjutkan">Lanjut Ke Pembayaran</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Jawara Cristal. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+  function buatKodePesanan() {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const huruf = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const randomHuruf = huruf[Math.floor(Math.random() * huruf.length)] + huruf[Math.floor(Math.random() * huruf.length)];
+    const randomAngka = Math.floor(Math.random() * 10);
+    return `#JWR${yyyy}${mm}${dd}${randomHuruf}${randomAngka}`;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector("h3 > span.red").textContent = buatKodePesanan();
+
+    // ==== Ambil data dari localStorage ====
+    const produk = localStorage.getItem('produk');
+    const paket = localStorage.getItem('paket');
+    const kemasan = localStorage.getItem('kemasan');
+    const hargaProduk = parseInt(localStorage.getItem('hargaProduk')) || 0;
+    const biayaKemasan = parseInt(localStorage.getItem('biayaKemasan')) || 0;
+    const gambarProduk = localStorage.getItem('gambarProduk');
+    const gambarKemasan = localStorage.getItem('gambarKemasan');
+
+    if (!produk) {
+      // jika halaman order kamu bernama lain, sesuaikan di bawah
+      alert("Data pesanan tidak ditemukan. Silakan kembali ke halaman Order.");
+      window.location.href = "coktail.html";
+      return;
+    }
+
+    // ==== Tampilkan detail pesanan ====
+    const detail = document.querySelector('.detail-teks');
+    detail.innerHTML = `
+      <div class="item-pesanan">
+        <img src="${gambarProduk || ''}" alt="Produk">
+        <div class="info-pesanan">
+          <strong>${produk}</strong>
+          <p class="variasi">${paket || ''}</p>
+          <p class="harga">Rp${hargaProduk.toLocaleString('id-ID')}</p>
+        </div>
+      </div>
+      <div class="item-pesanan">
+        <img src="${gambarKemasan || ''}" alt="Kemasan">
+        <div class="info-pesanan">
+          <strong>Pengemasan</strong>
+          <p class="variasi">${kemasan || ''}</p>
+          <p class="harga">${biayaKemasan > 0 ? 'Rp' + biayaKemasan.toLocaleString('id-ID') : 'Gratis'}</p>
+        </div>
+      </div>
+      <div class="ongkir">Ongkir: <span id="ongkirDetail">Rp0</span></div>
+      <div class="total">Total Bayar: <span id="totalBayar" style="color:red; font-weight:bold;">Rp0</span></div>
+    `;
+
+    // ==== Hitung total botol dari 'paket' ====
+    let totalBotol = 0;
+    (paket || "").split("\n").forEach(baris => {
+      const match = baris.match(/: (\d+)/);
+      if (match) totalBotol += parseInt(match[1], 10);
+    });
+
+    // ==== Data wilayah & tarif ====
+    const wilayahKurir = {
+      "TRUK (AMAN & CEPAT)": ["SIDOARJO", "MALANG"],
+      "JNT CARGO": ["BOGOR", "JAKARTA", "BEKASI", "SRAGEN", "TASIKMALAYA"],
+      "VENDOR": ["SIDOARJO", "JAKARTA"]
+    };
+
+    const ongkirKurir = {
+      "TRUK (AMAN & CEPAT)": {
+        "SIDOARJO": { "15": 20000, "20": 40000, "25": 60000, "30": 80000, "50": 120000 },
+        "MALANG":   { "15": 25000, "20": 45000, "25": 65000, "30": 85000, "50": 125000 }
+      },
+      "JNT CARGO": {
+        "BOGOR":    { "15": 30000, "20": 50000, "25": 70000, "30": 90000, "50": 130000 },
+        "JAKARTA":  { "15": 35000, "20": 55000, "25": 75000, "30": 95000, "50": 135000 },
+        "BEKASI":   { "15": 36000, "20": 56000, "25": 76000, "30": 96000, "50": 136000 },
+        "SRAGEN":   { "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+        "TASIKMALAYA": { "15": 82000, "25": 105000, "47": 210000, "94": 420000, "188": 840000, "282": 1260000 }
+      },
+      "VENDOR": {
+        "SIDOARJO": { "15": 40000, "20": 60000, "25": 80000, "30": 100000, "50": 140000 },
+        "JAKARTA":  { "15": 45000, "20": 65000, "25": 85000, "30": 105000, "50": 145000 }
+      }
+    };
+
+    // ==== Ambil elemen UI ====
+    const kurirSelect = document.getElementById("kurirSelect");
+    const cariInput   = document.getElementById("cariKabupaten");
+    const dropdown    = document.getElementById("daftarKabupaten");
+    const ongkirEl    = document.getElementById("ongkir");
+
+    let kurirSekarang = kurirSelect.value;
+    let ongkirSekarang = 0;
+
+    // ==== Util tier: ambil key >= jumlah (naik ke atas) ====
+    function getTierKeyNaik(jumlah, priceMap) {
+      const keys = Object.keys(priceMap).map(k => parseInt(k,10)).filter(n => !isNaN(n)).sort((a,b)=>a-b);
+      for (const k of keys) if (jumlah <= k) return String(k);
+      return String(keys[keys.length-1] || "");
+    }
+
+    // ==== Render ongkir + total ====
+    function renderOngkirDanTotal(ong) {
+      const text = "Rp" + (ong || 0).toLocaleString("id-ID");
+      ongkirEl.textContent = text;
+      const det = document.getElementById("ongkirDetail");
+      if (det) det.textContent = text;
+
+      const totEl = document.getElementById("totalBayar");
+      if (totEl) totEl.textContent = "Rp" + (hargaProduk + biayaKemasan + (ong||0)).toLocaleString("id-ID");
+    }
+
+    // ==== Filter list kabupaten by kurir ====
+    function filterKabupatenSesuaiKurir() {
+      kurirSekarang = kurirSelect.value;
+      const items = dropdown.querySelectorAll(".dropdown-item");
+      let ada = false;
+      items.forEach(it => {
+        const kab = it.textContent.trim();
+        const ok = (wilayahKurir[kurirSekarang] || []).includes(kab);
+        it.style.display = ok ? "block" : "none";
+        if (ok) ada = true;
+      });
+      // reset pilihan kabupaten & ongkir
+      cariInput.value = "";
+      renderOngkirDanTotal(0);
+      const warn = document.getElementById("peringatanKurir");
+      if (warn) warn.style.display = ada ? "none" : "block";
+    }
+
+    // ==== Buka/tutup dropdown ====
+    cariInput.addEventListener("focus", () => dropdown.style.display = "block");
+    cariInput.addEventListener("click",  () => dropdown.style.display = "block");
+    document.addEventListener("click", (e)=>{
+      if (!e.target.closest(".dropdown-container")) dropdown.style.display = "none";
+    });
+
+    // ==== Ganti kurir ====
+    kurirSelect.addEventListener("change", filterKabupatenSesuaiKurir);
+
+    // ==== Pilih kabupaten ====
+    dropdown.addEventListener("click", (e) => {
+      if (!e.target.classList.contains("dropdown-item")) return;
+      const kab = e.target.textContent.trim();
+      cariInput.value = kab;
+      dropdown.style.display = "none";
+
+      const priceMap = (ongkirKurir[kurirSekarang] || {})[kab];
+      if (!priceMap) {
+        renderOngkirDanTotal(0);
+        const warn = document.getElementById("peringatanKurir");
+        if (warn) warn.style.display = "block";
+        return;
+      }
+
+      const tierKey = getTierKeyNaik(totalBotol, priceMap);
+      const ong     = priceMap[tierKey] || 0;
+      ongkirSekarang = ong;
+      renderOngkirDanTotal(ongkirSekarang);
+      const warn = document.getElementById("peringatanKurir");
+      if (warn) warn.style.display = "none";
+    });
+
+    // ==== Inisialisasi ====
+    filterKabupatenSesuaiKurir();
+    renderOngkirDanTotal(0);
+  });
+  </script>
+
+  <script>feather.replace();</script>
+</body>
+</html>

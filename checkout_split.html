@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jawara Cristal</title>
+
+     <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+
+
+    <link rel="stylesheet" href="checkout-style.css" />
+    <link rel="stylesheet" href="style.css" />
+   <!-- <script src="https://unpkg.com/feather-icons"></script>-->
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+            <img src="poto produk/logo putih.PNG" alt="Logo" width="80px">
+            <h1>JAWARA CRISTAL</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Produk</a></li>
+                    <li><a href="https://www.instagram.com/jawara.cristal">Testimoni</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+
+
+<div class="container">
+  
+  <h3>Pesanan <span class="red"></span></h3>
+
+
+  <div class="box">
+    <h4 class="section-title">Alamat Pengiriman</h4>
+    <label>Nama Penerima</label>
+    <input type="text" placeholder="Tulis nama anda">
+
+    <label>Nomor Telepon Penerima</label>
+    <small>Contoh format: 081222333444</small>
+    <input type="tel" placeholder="Tulis nomor telepon anda">
+
+    <label>Alamat Lengkap</label>
+    <textarea rows="3" placeholder="Alamat lengkap..."></textarea>
+
+    <label>Kecamatan</label>
+    <input type="text">
+
+    <label>Kabupaten</label>
+    <input type="text">
+
+    <label>Dusun/RT RW</label>
+    <input type="text">
+
+    <label>Kelurahan</label>
+    <input type="text">
+  </div>
+
+  <div class="box">
+    <h4 class="section-title">Pilihan Kurir</h4>
+    <label>Kurir</label>
+    <select>
+      <option selected>TRUK (AMAN & CEPAT)</option>
+    
+   <!-- <option>VENDOR</option> -->
+    </select>
+
+    
+    <div class="dropdown-container">
+        <label for="cariKabupaten">Kabupaten</label>
+        
+        <input type="text" id="cariKabupaten" placeholder="Pilih kabupaten..." readonly>
+        <div class="dropdown-list" id="daftarKabupaten">
+         
+          <div class="dropdown-item">Jakarta Pusat/Gambir </div>         
+          <div class="dropdown-item">Jakarta Pusat/Johar Baru</div>
+          <div class="dropdown-item">Jakarta Pusat/Kemayoran</div>
+          <div class="dropdown-item">Jakarta Pusat/Menteng</div>
+          <div class="dropdown-item">Jakarta Pusat/Sawah Besar</div>
+          <div class="dropdown-item">Jakarta Pusat/Senen</div>
+          <div class="dropdown-item">Jakarta Pusat/Tanah Abang</div>
+
+          <div class="dropdown-item">Jakarta Utara/Cilincing</div>
+          <div class="dropdown-item">Jakarta Utara/Kelapa Gading</div>
+          <div class="dropdown-item">Jakarta Utara/Koja</div>
+          <div class="dropdown-item">Jakarta Utara/Pademangan</div>
+          <div class="dropdown-item">Jakarta Utara/Penjaringan</div>
+          <div class="dropdown-item">Jakarta Utara/Tanjung Priok</div>
+
+          <div class="dropdown-item">Jakarta Barat/Cengkareng</div>
+          <div class="dropdown-item">Jakarta Barat/Grogol Petamburan</div>
+          <div class="dropdown-item">Jakarta Barat/Kalideres</div>
+          <div class="dropdown-item">Jakarta Barat/Kebon Jeruk</div>
+          <div class="dropdown-item">Jakarta Barat/Kembangan</div>
+          <div class="dropdown-item">Jakarta Barat/Palmerah</div>
+          <div class="dropdown-item">Jakarta Barat/Taman Sari</div>
+          <div class="dropdown-item">Jakarta Barat/Tambora</div>
+
+          <div class="dropdown-item">Jakarta Selatan/Cilandak</div>
+          <div class="dropdown-item">Jakarta Selatan/Jagakarsa</div>
+          <div class="dropdown-item">Jakarta Selatan/Kemayoran Baru</div>
+          <div class="dropdown-item">Jakarta Selatan/Kemayoran Lama</div>
+          <div class="dropdown-item">Jakarta Selatan/Mampang Prapatan</div>
+          <div class="dropdown-item">Jakarta Selatan/Pancoran</div>
+          <div class="dropdown-item">Jakarta Selatan/Pasar Minggu</div>
+          <div class="dropdown-item">Jakarta Selatan/Pesanggrahan</div>
+          <div class="dropdown-item">Jakarta Selatan/Setiabudi</div>
+          <div class="dropdown-item">Jakarta Selatan/Tebet</div>
+
+          <div class="dropdown-item">Jakarta Timur/Cakung</div>
+          <div class="dropdown-item">Jakarta Timur/Cipayung</div>
+          <div class="dropdown-item">Jakarta Timur/Ciracas</div>
+          <div class="dropdown-item">Jakarta Timur/Duren Sawit</div>
+          <div class="dropdown-item">Jakarta Timur/Jatinegara</div>
+          <div class="dropdown-item">Jakarta Timur/Kramat Jati</div>
+          <div class="dropdown-item">Jakarta Timur/Makasar</div>
+          <div class="dropdown-item">Jakarta Timur/Matraman</div>
+          <div class="dropdown-item">Jakarta Timur/Pasar Rebo</div>
+          <div class="dropdown-item">Jakarta Timur/Pulugadung</div>
+          
+
+          <!-- Tambahkan lainnya -->
+        </div>
+      </div>
+
+      <p id="peringatanKurir" style="color:red; display:none;">
+        Kurir ini tidak tersedia untuk kabupaten yang dipilih.
+      </p>
+      
+      <p class="peringatan-kabupaten">
+        Pastikan kabupaten yang Anda pilih sesuai dengan alamat pengiriman di atas
+      </p>
+
+    <p>Ongkos kirim: <span id="ongkir" class="harga">Rp0</span></p>
+  </div>
+
+  
+
+  <div class="detail-pesanan-container">
+    <h4 class="judul-pesanan">Detail Pesanan</h4>
+    <div class="detail-produk">
+      <div class="detail-teks">
+        <strong>Memuat data pesanan...</strong>
+      </div>
+    </div>
+    <div class="tombol-lanjutkan-container">
+      <button class="tombol-lanjutkan">Lanjut Ke Pembayaran</button>
+    </div>
+  </div>
+
+  
+
+
+  <footer>
+    <div class="container">
+        <p>&copy; 2025 Jawara Cristal. All rights reserved.</p>
+    </div>
+</footer>
+    
+  
+
+
+
+<script>
+function buatKodePesanan() {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+
+  const huruf = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const randomHuruf = huruf[Math.floor(Math.random() * huruf.length)] + huruf[Math.floor(Math.random() * huruf.length)];
+  const randomAngka = Math.floor(Math.random() * 10); // angka 0-9
+
+  const kode =` #JWR${yyyy}${mm}${dd}${randomHuruf}${randomAngka}`;
+  return kode;
+}
+
+// Tampilkan kode ke halaman
+document.addEventListener("DOMContentLoaded", function () {
+  const elemenKode = document.querySelector("h3 > span.blue");
+  if (elemenKode) {
+    elemenKode.textContent = buatKodePesanan();
+  }
+});
+
+
+
+
+
+
+
+
+
+
+</script>
+
+ 
+<script>
+  const wilayahKurir = {
+    "TRUK (AMAN & CEPAT)": ["Jakarta Pusat/Gambir", "Jakarta Pusat/Johar Baru", "Jakarta Pusat/Kemayoran", "Jakarta Pusat/Menteng", "Jakarta Pusat/Sawah Besar", "Jakarta Pusat/Senen", "Jakarta Pusat/Tanah Abang",
+    "Jakarta Utara/Cilincing", "Jakarta Utara/Kelapa Gading", "Jakarta Utara/Koja", "Jakarta Utara/Pademangan", "Jakarta Utara/Penjaringan", "Jakarta Utara/Tanjung Priok", "Jakarta Barat/Cengkareng", "Jakarta Barat/Grogol Petamburan", "Jakarta Barat/Kalideres", "Jakarta Barat/Kebon Jeruk", "Jakarta Barat/Kembangan", "Jakarta Barat/Palmerah", "Jakarta Barat/Taman Sari", "Jakarta Barat/Tambora",
+    "Jakarta Timur/Cakung", "Jakarta Timur/Cipayung", "Jakarta Timur/Ciracas", "Jakarta Timur/Duren Sawit", "Jakarta Timur/Jatinegara", "Jakarta Timur/Kramat Jati", "Jakarta Timur/Makasar", "Jakarta Timur/Matraman", "Jakarta Timur/Pasar Rebo", "Jakarta Timur/Pulogadung", "Jakarta Selatan/Cilandak", "Jakarta Selatan/Jagakarsa", "Jakarta Selatan/Kebayoran Baru", "Jakarta Selatan/Kebayoran Lama", "Jakarta Selatan/Mampang Prapatan", "Jakarta Selatan/Pancoran", "Jakarta Selatan/Pasar Minggu", "Jakarta Selatan/Pesanggrahan", "Jakarta Selatan/Setiabudi", "Jakarta Selatan/Tebet",
+
+    ],
+
+
+
+  } 
+  </script>
+ 
+ 
+ 
+ 
+ <script>
+    window.addEventListener('DOMContentLoaded', () => {
+    const produk = localStorage.getItem('produk');
+    const paket = localStorage.getItem('paket');
+    const kemasan = localStorage.getItem('kemasan');
+    const hargaProduk = parseInt(localStorage.getItem('hargaProduk')) || 0;
+    const biayaKemasan = parseInt(localStorage.getItem('biayaKemasan')) || 0;
+    const gambarProduk = localStorage.getItem('gambarProduk');
+    const gambarKemasan = localStorage.getItem('gambarKemasan');
+    const total = hargaProduk + biayaKemasan;
+
+    if (!produk || !paket) {
+        alert("Data pesanan tidak ditemukan. Silakan kembali ke halaman Order.");
+        window.location.href = "order.html";
+        return;
+    }
+
+    const detail = document.querySelector('.detail-teks');
+    if (detail) {
+
+        if (detail) {
+            detail.innerHTML = `
+      <div class="item-pesanan">
+        <img src="${gambarProduk}" alt="Produk">
+        <div class="info-pesanan">
+          <strong>${produk}</strong>
+          <p class="variasi">${paket}</p>
+          <p class="harga">Rp${hargaProduk.toLocaleString('id-ID')}</p>
+        </div>
+      </div>
+      <div class="item-pesanan">
+        <img src="${gambarKemasan}" alt="Kemasan">
+        <div class="info-pesanan">
+          <strong>Pengemasan</strong>
+          <p class="variasi">${kemasan}</p>
+          <p class="harga">${biayaKemasan > 0 ? 'Rp' + biayaKemasan.toLocaleString('id-ID') : 'Gratis'}</p>
+        </div>
+      </div>
+      <div class="total">
+        Total Bayar: <span style="color:blue; font-weight:bold;">Rp${total.toLocaleString('id-ID')}</span>
+      </div>
+    `;
+  
+
+
+}
+
+
+      kurirSelect.addEventListener("change", () => {
+  // update kurir yang aktif
+  kurirSekarang = kurirSelect.value;
+
+  // kosongkan input pencarian kabupaten
+  cariInput.value = "";
+
+  // refresh daftar kabupaten sesuai kurir yang dipilih
+  const daftarKabupaten = document.querySelectorAll(".dropdown-item");
+  daftarKabupaten.forEach(item => {
+    const kab = item.textContent.trim();
+    const tersedia = wilayahKurir[kurirSekarang]?.includes(kab);
+    item.style.display = tersedia ? "block" : "none";
+  });
+
+  // reset ongkir dan total
+  ongkirSekarang = 0;
+  ongkirEl.textContent = "Rp0";
+  updateTotalDenganOngkir();
+});
+
+
+
+
+      }
+
+      const imgProduk = document.getElementById('gambarProduk');
+      const imgKemasan = document.getElementById('gambarKemasan');
+      if (gambarProduk && imgProduk) imgProduk.src = gambarProduk;
+      if (gambarKemasan && imgKemasan) imgKemasan.src = gambarKemasan;
+    });
+
+
+    // harga ongkir 
+    
+    const ongkirKurir = {
+  "TRUK (AMAN & CEPAT)": {
+    "Jakarta Pusat/Gambir": { "10": 25000, "15": 35000, "25": 45000, "47": 55000, "94": 65000, "188": 75000, "282": 85000 },
+    "Jakarta Pusat/Kemayoran":    { "10": 40000, "15": 50000, "25": 150000, "47": 150000, "94": 280000, "188": 90000, "282": 100000 },
+    "Jakarta Pusat/Johar Baru":    { "10": 40000, "15": 50000, "25": 152000, "47": 152000, "94": 300000, "188": 90000, "282": 100000 },
+    "Jakarta Pusat/Menteng":    { "10": 40000, "15": 50000, "25": 120000, "47": 120000, "94": 240000, "188": 90000, "282": 100000 },
+    "Jakarta Pusat/Sawah Besar":    { "10": 40000, "15": 50000, "25": 60000, "47": 3456000, "94": 165000, "188": 90000, "282": 100000 },
+    "Jakarta Pusat/Senen":    { "10": 40000, "15": 50000, "25": 60000, "47": 3456000, "94": 165000, "188": 90000, "282": 100000 },
+    "Jakarta Pusat/Tanah Abang":    { "10": 40000, "15": 50000, "25": 60000, "47": 3456000, "94": 165000, "188": 90000, "282": 100000 },
+
+    "Jakarta Utara/Kelapa Gading": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Utara/Koja": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Utara/Pademangan": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Utara/Penjaringan": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Utara/Tanjung Priok": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Utara/Cilincing": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+
+    "Jakarta Barat/Grogol Petamburan": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Barat/Cengkareng": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Barat/Kalideres": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Barat/Kebon Jeruk": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Barat/Kembangan": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Barat/Palmerah": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Barat/Taman Sari": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Barat/Tambora": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+
+    "Jakarta Selatan/Cilandak": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Selatan/Jagakarsa": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Selatan/Kemayoran Baru": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Selatan/Kemayoran Lama": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Selatan/Mampang Prapatan": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Selatan/Pancoran": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Selatan/Pasar Minggu": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Selatan/Pesanggrahan": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Selatan/Setiabudi": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Selatan/Tebet": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+
+    "Jakarta Timur/Cakung": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Timur/Cipayung": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Timur/Ciracas": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Timur/Duren Sawit": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Timur/Jatinegara": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Timur/Kramat Jati": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Timur/Makasar": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Timur/Matraman": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Timur/Pasar Rebo": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "Jakarta Timur/Pulugadung": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+  
+   
+
+
+
+    
+
+
+
+
+
+
+
+
+    "TANGERANG":    { "10": 40000, "15": 50000, "25": 60000, "47": 3456000, "94": 165000, "188": 90000, "282": 100000 },
+    "JAKARTA":    { "10": 40000, "15": 50000, "25": 60000, "47": 3456000, "94": 165000, "188": 90000, "282": 100000 },
+    "BEKASI":    { "10": 40000, "15": 50000, "25": 60000, "47": 3456000, "94": 165000, "188": 90000, "282": 100000 }
+    // tambahkan kabupaten lain jika perlu
+  },
+
+  
+  
+  // "VENDOR": {
+   // "Sumenep": { "10": 20000, "15": 30000, "25": 40000, "47": 50000, "94": 60000, "188": 70000, "282": 80000 },
+    //"Pandeglang":     { "10": 18000, "15": 28000, "25": 38000, "47": 48000, "94": 58000, "188": 68000, "282": 78000 },
+   // "Denpasar":    { "10": 30000, "15": 40000, "25": 50000, "47": 60000, "94": 70000, "188": 80000, "282": 90000 }
+//  }
+};
+
+const cariInput = document.getElementById("cariKabupaten");
+const dropdown = document.getElementById("daftarKabupaten");
+const ongkirEl = document.getElementById("ongkir");
+let ongkirSekarang = 0;
+
+const kurirSelect = document.querySelector("select");
+let kurirSekarang = kurirSelect.value;
+
+// Saat kurir diubah
+kurirSelect.addEventListener("change", () => {
+  // Saat halaman pertama kali load, tampilkan hanya kabupaten sesuai kurir default
+const daftarKabupaten = document.querySelectorAll(".dropdown-item");
+daftarKabupaten.forEach(item => {
+  const kab = item.textContent.trim();
+  const tersedia = wilayahKurir[kurirSekarang]?.includes(kab);
+  item.style.display = tersedia ? "block" : "none";
+});
+
+
+
+
+  kurirSekarang = kurirSelect.value;
+  const kabupaten = cariInput.value;
+
+  if (kabupaten in ongkirKurir[kurirSekarang]) {
+    ongkirSekarang = ongkirKurir[kurirSekarang][kabupaten];
+  } else {
+    ongkirSekarang = 0;
+  }
+
+  ongkirEl.textContent = "Rp" + ongkirSekarang.toLocaleString("id-ID");
+  updateTotalDenganOngkir();
+});
+
+  // Tampilkan daftar saat input diklik
+  cariInput.addEventListener("focus", () => {
+    dropdown.style.display = "block";
+  
+
+  
+
+    items.forEach(item => {
+      const cocok = item.textContent.toLowerCase().includes(keyword);
+      item.style.display = cocok ? "block" : "none";
+    });
+  });
+
+  // Saat memilih kabupaten
+  dropdown.addEventListener("click", (e) => {
+    if (e.target.classList.contains("dropdown-item")) {
+      const kabupaten = e.target.textContent;
+      cariInput.value = kabupaten;
+      dropdown.style.display = "none";
+
+      const paket = localStorage.getItem('paket') || "0";
+const jumlahBotol = parseInt(paket.match(/\d+/)?.[0]) || 0;
+
+// Cari key terdekat (10, 15, 25, 47, 94, 188, 282)
+function getBotolKey(jumlah) {
+  if (jumlah <= 10) return "10";
+  else if (jumlah <= 15) return "15";
+  else if (jumlah <= 25) return "25";
+  else if (jumlah <= 47) return "47";
+  else if (jumlah <= 94) return "94";
+  else if (jumlah <= 188) return "188";
+  else return "282";
+}
+
+if (
+  ongkirKurir[kurirSekarang] &&
+  ongkirKurir[kurirSekarang][kabupaten]
+) {
+  const botolKey = getBotolKey(jumlahBotol);
+  ongkirSekarang = ongkirKurir[kurirSekarang][kabupaten][botolKey] || 0;
+} else {
+  ongkirSekarang = 0;
+}
+
+
+
+ongkirEl.textContent = "Rp" + ongkirSekarang.toLocaleString("id-ID");
+      updateTotalDenganOngkir();
+    }
+  });
+
+  // Sembunyikan dropdown saat klik di luar
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".dropdown-container")) {
+      dropdown.style.display = "none";
+    }
+  });
+
+  function updateTotalDenganOngkir() {
+  const hargaProduk = parseInt(localStorage.getItem('hargaProduk')) || 0;
+  const biayaKemasan = parseInt(localStorage.getItem('biayaKemasan')) || 0;
+  const total = hargaProduk + biayaKemasan + ongkirSekarang;
+
+  const detail = document.querySelector('.detail-teks');
+  if (detail) {
+    // Hapus semua elemen .total lama
+    detail.querySelectorAll('.total').forEach(el => el.remove());
+
+    // Tambahkan elemen baru dengan format kiri–kanan
+    const totalHTML = document.createElement('div');
+    totalHTML.className = 'total';
+    totalHTML.style.display = 'flex';
+    totalHTML.style.justifyContent = 'space-between';
+    totalHTML.style.alignItems = 'center';
+    totalHTML.innerHTML = `
+      <span>Total Bayar:</span>
+      <span style="color:black; font-weight:bold;">Rp${total.toLocaleString('id-ID')}</span>
+    `;
+    detail.appendChild(totalHTML);
+  }
+}
+    
+
+
+  
+  
+  // Jalankan saat awal jika ongkir sudah ada
+  window.addEventListener('DOMContentLoaded', () => {
+    updateTotalDenganOngkir();
+  });
+
+  // Saat halaman pertama kali load, filter kabupaten sesuai kurir default
+const daftarKabupaten = document.querySelectorAll(".dropdown-item");
+daftarKabupaten.forEach(item => {
+  const kab = item.textContent.trim();
+  const tersedia = wilayahKurir[kurirSekarang]?.includes(kab);
+  item.style.display = tersedia ? "block" : "none";
+});
+
+</script>
+
+
+
+  
+
+
+
+  
+
+<script>
+  document.querySelector(".tombol-lanjutkan").addEventListener("click", function() {
+      const nama = document.querySelector('input[placeholder="Tulis nama anda"]');
+      const telp = document.querySelector('input[placeholder="Tulis nomor telepon anda"]');
+      const alamat = document.querySelector('textarea[placeholder="Alamat lengkap..."]');
+      const kecamatan = document.querySelectorAll('input[type="text"]')[1];
+      const kabupatenInput = document.getElementById("cariKabupaten");
+
+      // Validasi kolom
+      if (!nama.value.trim()) {
+          alert("Isi terlebih dahulu nama penerima");
+          nama.focus();
+          return;
+      }
+      if (!telp.value.trim()) {
+          alert("Isi terlebih dahulu nomor telepon penerima");
+          telp.focus();
+          return;
+      }
+      if (!alamat.value.trim()) {
+          alert("Isi terlebih dahulu alamat lengkap");
+          alamat.focus();
+          return;
+      }
+      if (!kecamatan.value.trim()) {
+          alert("Isi terlebih dahulu kecamatan");
+          kecamatan.focus();
+          return;
+      }
+      if (!kabupatenInput.value.trim()) {
+          alert("pilih terlebih dahulu kabupaten");
+          kabupatenInput.focus();
+          return;
+      }
+
+      // Data pesanan
+      const kurir = document.querySelector("select").value;
+      const produk = localStorage.getItem('produk') || '';
+      const paket = localStorage.getItem('paket') || '';
+      const kemasan = localStorage.getItem('kemasan') || '';
+      const hargaProduk = parseInt(localStorage.getItem('hargaProduk')) || 0;
+      const biayaKemasan = parseInt(localStorage.getItem('biayaKemasan')) || 0;
+      const ongkir = ongkirSekarang || 0;     
+      const total = hargaProduk + biayaKemasan + ongkir;
+
+      const pesan = `Nomor pesanan: ${buatKodePesanan()}
+  Halo, saya ingin melakukan pembayaran untuk pesanan berikut:
+  
+  Paket: ${produk}  ${paket} Rp${hargaProduk.toLocaleString('id-ID')}
+  Pegiriman Dengan: ${kurir}
+  Ongkos kirim: Rp${ongkir.toLocaleString('id-ID')}
+  
+  Nama Penerima: ${nama.value}
+  Nomor Telp: ${telp.value}
+  Alamat: ${alamat.value}
+  Kecamatan: ${kecamatan.value}
+  Kabupaten:${kabupatenInput.value}
+
+
+  Pengemasan:
+  Paket: ${kemasan} Rp${biayaKemasan.toLocaleString('id-ID')}
+  
+  *Total harga: Rp${total.toLocaleString('id-ID')}*`;
+
+      const nomorWA = "6281228601369"; 
+      const urlWA =` https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+      window.open(urlWA, "_blank");
+  });
+</script>
+
+
+
+  
+  <style>
+  .detail-produk p {
+    margin: 1px 0;
+    font-size: 14px;
+    color: #333;
+  }
+  .detail-produk .total {
+    font-size: 16px;
+    font-weight: bold;
+    color: #132b5b;
+  }
+  </style>
+
+
+
+
+<!-- Tombol WhatsApp Mengambang -->
+<a href="https://wa.me/6281228601369" target="_blank" class="wa-floating">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+       alt="WhatsApp" />
+</a>
+
+<style>
+.wa-floating {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+.wa-floating img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  background: white;
+  padding: 5px;
+  transition: transform 0.3s ease;
+}
+.wa-floating img:hover {
+  transform: scale(1.1);
+}
+</style>
+
+
+
+<script>
+      feather.replace();
+    </script>
+
+</body>
+</html>

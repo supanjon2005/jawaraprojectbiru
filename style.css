@@ -1,0 +1,1059 @@
+* {
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+   
+
+}
+
+html, body {
+    background-color:#fff !important;
+  }
+
+/* Header tetap fixed, tidak diganggu */
+header {
+  background-color:#132b5b;
+  color: white;
+  padding: 5px 15px;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 62px; /* tentukan tinggi pasti header */
+  top: 0;
+  left: 0;
+}
+
+/* Turunkan body biar isi tidak ketutup header */
+body {
+  margin: 0;
+  padding-top: 70px; /* sama dengan tinggi header */
+}
+
+
+
+
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+
+  }
+  
+  .logo {
+    font-weight: bold;
+    font-size: 1%;
+    font-family: "PT Serif", serif;
+  
+  
+  }
+  
+  .header-icons img {
+    height: 16px;
+    margin-left: 10px;
+  }
+  
+
+
+  header .logo {
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .red {
+    color: #132b5b;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+header .logo img {
+    width: 50px;
+   margin-right: 8px;
+}
+
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+header .logo h1 {
+    font-size: 20px; 
+    font-weight: bold;         /* Teks judul kecil */
+    margin: 0;                /* Hilangkan jarak tambahan */
+}
+
+header nav ul li a {
+    margin-left: 1px;
+}
+
+header nav ul li a :hover {
+    color: #007bff;
+}
+
+/* Responsif HP */
+
+
+
+/* Gambar logo */
+.logo img {
+    width: 80px;           /* Logo sangat kecil */
+    height: auto;
+    margin-right: 30px;     /* Jarak dekat ke teks */
+    object-fit: contain;
+}
+
+
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #c0901f;
+}
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero.jpg') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #132b5b;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero .cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #132b5b;
+    color: black;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.hero .cta-button:hover {
+    background-color: #d4a847;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(224, 179, 77, 0.3);
+}
+
+.produk {
+    background-color: #f5f5f5;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.produk h2 {
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: #333;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+
+
+
+.produk-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.produk-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 320px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produk-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.produk-item img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.produk-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.produk-item p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.beli-btn {
+    background-color: #000;
+    color: white;
+    padding: 12px 20px;
+    margin-top: 15px;
+    border: none;
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.beli-btn:hover {
+    background-color: #333;
+}
+
+.testimoni {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.testimoni h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.testimoni p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+
+footer p {
+    margin: 0;
+    color: #ccc;
+}
+
+.kontak {
+    background-color: #f9f9f9;
+    padding: 80px 0;
+}
+
+.kontak h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.kontak-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.kontak-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    width: 280px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.kontak-item:hover {
+    transform: translateY(-5px);
+}
+
+.kontak-item h3 {
+    color: #132b5b;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.kontak-item p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.kontak-btn {
+    display: inline-block;
+    background-color: #000;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.kontak-btn:hover {
+    background-color: #333;
+}
+
+
+
+
+
+
+/* Order Page Styles */
+.order-section {
+    padding: 80px 0;
+    background-color: #f5f5f5;
+}
+
+.order-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.order-form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.product-info {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.product-info h3 {
+    color: #132b5b;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.product-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.product-details img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-details h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.product-details p {
+    color: #666;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #132b5b;
+}
+
+/* Khusus untuk input di checkout page */
+.shipping-section .form-group input,
+.shipping-section .form-group textarea {
+    font-size: 1.2rem;
+    padding: 15px;
+    height: auto;
+}
+
+.shipping-section .form-group input {
+    height: 50px;
+}
+
+.shipping-section .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.shipping-section .form-group label {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+/* Ukuran input yang dapat disesuaikan */
+.input-large {
+    font-size: 1.4rem !important;
+    padding: 18px !important;
+    height: 60px !important;
+}
+
+.textarea-large {
+    font-size: 1.4rem !important;
+    padding: 18px !important;
+    min-height: 120px !important;
+}
+
+.input-medium {
+    font-size: 1.1rem !important;
+    padding: 12px !important;
+    height: 45px !important;
+}
+
+.textarea-medium {
+    font-size: 1.1rem !important;
+    padding: 12px !important;
+    min-height: 90px !important;
+}
+
+.input-small {
+    font-size: 0.9rem !important;
+    padding: 8px !important;
+    height: 35px !important;
+}
+
+.textarea-small {
+    font-size: 0.9rem !important;
+    padding: 8px !important;
+    min-height: 70px !important;
+}
+
+/* Ukuran extra small untuk input yang lebih kecil */
+.input-extra-small {
+    font-size: 0.8rem !important;
+    padding: 6px !important;
+    height: 30px !important;
+}
+
+.textarea-extra-small {
+    font-size: 0.8rem !important;
+    padding: 6px !important;
+    min-height: 60px !important;
+}
+
+.order-summary {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 30px 0;
+    border-left: 4px solid #132b5b;
+}
+
+.order-summary h4 {
+    color: #132b5b;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.order-summary p {
+    margin-bottom: 8px;
+    color: #666;
+}
+
+.order-summary span {
+    font-weight: bold;
+    color: #333;
+}
+
+.summary-product {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.summary-images {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.product-image,
+.packaging-image {
+    text-align: center;
+}
+
+.product-image img,
+.packaging-image img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+
+.image-label {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.summary-details {
+    flex: 1;
+}
+
+.order-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #132b5b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.order-btn:hover {
+    background-color: #128c7e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+
+.confirm-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #1d335f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.confirm-button:hover {
+    background-color: #132b5b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(118, 2, 2, 0.4);
+}
+
+
+
+/* Checkout Page Styles */
+.checkout-section {
+    padding: 80px 0;
+    background-color: #f5f5f5;
+}
+
+.checkout-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.checkout-form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.order-summary-checkout {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.order-summary-checkout h3 {
+    color: #132b5b;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.product-summary {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.product-summary img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-summary h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.product-summary p {
+    color: #666;
+    font-weight: bold;
+}
+
+.order-details {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #132b5b;
+}
+
+.order-details h4 {
+    color: #132b5b;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.order-details p {
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.payment-section,
+.shipping-section {
+    margin-bottom: 30px;
+}
+
+.payment-section h3,
+.shipping-section h3 {
+    color: #132b5b;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.payment-options {
+    margin-bottom: 20px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.payment-option:hover {
+    border-color: #132b5b;
+}
+
+.payment-option input[type="radio"] {
+    margin-right: 10px;
+}
+
+.payment-option label {
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.bank-details,
+.cod-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.bank-details h4,
+.cod-details h4 {
+    color: #132b5b;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.bank-details p,
+.cod-details p {
+    margin-bottom: 8px;
+    color: #666;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.confirm-order-btn,
+.back-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.confirm-order-btn {
+    background-color: #25d366;
+    color: white;
+}
+
+.confirm-order-btn:hover {
+    background-color: #128c7e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+
+.back-btn {
+    background-color: #666;
+    color: white;
+}
+
+.back-btn:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+}
+
+
+
+#formPembelian {
+    display: none;
+    margin-top: 20px;
+    padding: 25px;
+    border: 2px solid #132b5b;
+    border-radius: 12px;
+    background: #f9f9f9;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#formPembelian h3 {
+    color: #132b5b;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+#formPembelian p {
+    color: #666;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#formPembelian label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.paket-container,
+.kemasan-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.paket-container button,
+.kemasan-container button {
+    margin: 0;
+    padding: 12px 18px;
+    border: 2px solid #ddd;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.paket-container button:hover,
+.kemasan-container button:hover {
+    border-color: #132b5b;
+    background-color: #f0f0f0;
+}
+
+.paket-container button.active,
+.kemasan-container button.active {
+    background: #132b5b;
+    color: white;
+    font-weight: bold;
+    border-color: #132b5b;
+    transform: scale(1.05);
+}
+
+#checkoutBtn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 15px 30px;
+    background-color: #25d366;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+}
+
+#checkoutBtn:hover {
+    background-color: #128c7e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+
+
+
+.note-warning {
+    color: #132b5b;
+    background-color: #fdecea;
+    border-left: 4px solid #ffffff;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+
+.summary-details p {
+    margin: 6px 0;
+}
+
+.summary-details hr {
+    margin: 10px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+
+.summary-details p strong {
+    color: #132b5b;
+    font-size: 16px;
+}
+
+
+
+
+@media (max-width: 768px) {
+    header {
+        padding: 4px 10px;
+    }
+
+    header .logo img {
+        width: 55px; /* kecilkan logo */
+    }
+
+    header .logo h1 {
+        font-size: 15px; /* kecilkan nama */
+    }
+
+    header nav ul li {
+        margin-left: 8px; /* rapatkan menu */
+    }
+
+    header nav ul li a {
+        font-size: 12px; /* kecilkan teks menu */
+    }
+
+    .produk-list {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(150px, 1fr)) !important;
+        gap: 15px;
+        
+        padding: 0 10px;
+
+    }
+    .produk-item {
+        max-width: 300px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 8px;
+        box-sizing: border-box;
+        text-align: center;
+        border-radius: 8px;
+        overflow: hidden;
+        
+        
+        box-sizing: border-box;
+    }
+    .produk-item img {
+        
+        width: 100%;
+        margin-bottom: 8px;
+        display: block;
+        object-fit: contain;
+        height: 200px;
+    } 
+
+    .produk-item p {
+        font-size: 11px;
+        line-height: 1.3;
+        height: 30px;
+        overflow: hidden;
+    }
+}
+
+
+.label-jawa {
+    display: inline-block;
+    background-color: #132b5b;
+    color: white;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 4px;
+    
+    font-size: 18px;
+    
+    text-align: center;
+    margin: 10px auto 15px auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*-----------coktail css------------*/
+
+
+
+.paket-header,
+.paket-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 kolom: Rasa | Harga | Jumlah */
+  align-items: center;
+  padding: 5px 0;
+}
+
+.paket-header {
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.paket-header .rasa {
+  text-align: left;
+}
+
+.paket-item .rasa {
+  text-align: left;
+}
+
+.paket-item .harga {
+  text-align: center;
+}
+
+.paket-item .jumlah {
+  text-align: right;
+}
+
+.qty-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.qty-box button {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+}
+
+.qty-box input {
+  width: 50px;
+  text-align: center;
+  margin: 0 5px;
+}
+
+
+
